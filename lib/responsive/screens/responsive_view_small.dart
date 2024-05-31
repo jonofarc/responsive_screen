@@ -1,4 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:size_test/responsive/widgets/number_grid.dart';
+import 'package:size_test/responsive/widgets/random_image.dart';
+import 'package:size_test/utils/texts.dart';
 
 class ResponsiveViewSmall extends StatelessWidget {
   const ResponsiveViewSmall({
@@ -7,31 +11,35 @@ class ResponsiveViewSmall extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Expanded(
-        flex: 2,
-        child: Container(
-          alignment: Alignment.center,
-          color: Colors.blueAccent,
-          child: const Text('Mobile', style: TextStyle(fontSize: 24)),
-        ),
-      ),
-      Expanded(
-        flex: 5,
-        child: Container(
-          alignment: Alignment.center,
-          color: Colors.grey,
-          child: const Text('Mobile', style: TextStyle(fontSize: 24)),
-        ),
-      ),
-      Expanded(
-        flex: 7,
-        child: Container(
-          alignment: Alignment.center,
-          color: Colors.green,
-          child: const Text('Mobile', style: TextStyle(fontSize: 24)),
-        ),
-      ),
-    ]);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0), // Add padding to the column
+            child: Column(
+              children: [
+                Container(
+                  height: 200, // Adjust the height as needed
+                  alignment: Alignment.center,
+                  child: const RandomImage(),
+                ),
+                Container(
+                  height: 200, // Adjust the height as needed
+                  alignment: Alignment.center,
+                  child: const AutoSizeText(
+                    loreIpsum,
+                    style: TextStyle(fontSize: 30),
+                    maxLines: 11,
+                  ),
+                ),
+                const NumberGrid(
+                  crossAxisCount: 1,
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }

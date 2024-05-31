@@ -23,11 +23,14 @@ class ResponsiveScreenState extends State<ResponsiveScreen> {
       appBar: AppBar(
         title: const Text('Responsive Screen'),
       ),
-      body: const Responsive(
-        key: Key("ResponsiveScreen"),
-        small: ResponsiveViewSmall(),
-        medium: ResponsiveViewMedium(),
-        large: ResponsiveViewLarge(),
+      body: const Padding(
+        padding: EdgeInsets.all(16.0), // Add padding to all sides
+        child: Responsive(
+          key: Key("ResponsiveScreen"),
+          small: ResponsiveViewSmall(),
+          medium: ResponsiveViewMedium(),
+          large: ResponsiveViewLarge(),
+        ),
       ),
     );
   }

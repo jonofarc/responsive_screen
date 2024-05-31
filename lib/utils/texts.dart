@@ -1,0 +1,2 @@
+const loreIpsum =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pharetra massa massa ultricies mi quis. Et malesuada fames ac turpis egestas maecenas pharetra convallis posuere. Et egestas quis ipsum suspendisse ultrices gravida dictum fusce. Sit amet purus gravida quis. Phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. ";

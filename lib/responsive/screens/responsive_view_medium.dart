@@ -1,4 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:size_test/responsive/widgets/number_grid.dart';
+import 'package:size_test/responsive/widgets/random_image.dart';
+import 'package:size_test/utils/texts.dart';
 
 class ResponsiveViewMedium extends StatelessWidget {
   const ResponsiveViewMedium({
@@ -7,36 +11,31 @@ class ResponsiveViewMedium extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      Expanded(
-        flex: 5,
-        child: Row(children: [
-          Expanded(
-            flex: 3,
-            child: Container(
-              alignment: Alignment.center,
-              color: Colors.blueAccent,
-              child: const Text('Tablet', style: TextStyle(fontSize: 24)),
-            ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Expanded(
+                flex: 3,
+                child: Container(
+                  alignment: Alignment.center,
+                  child: const RandomImage(),
+                ),
+              ),
+              const Expanded(
+                flex: 5,
+                child: AutoSizeText(
+                  loreIpsum,
+                  style: TextStyle(fontSize: 30),
+                  maxLines: 11,
+                ),
+              ),
+            ],
           ),
-          Expanded(
-            flex: 5,
-            child: Container(
-              alignment: Alignment.center,
-              color: Colors.grey,
-              child: const Text('Tablet', style: TextStyle(fontSize: 24)),
-            ),
-          ),
-        ]),
+          const NumberGrid(),
+        ],
       ),
-      Expanded(
-        flex: 3,
-        child: Container(
-          alignment: Alignment.center,
-          color: Colors.green,
-          child: const Text('Tablet', style: TextStyle(fontSize: 24)),
-        ),
-      ),
-    ]);
+    );
   }
 }

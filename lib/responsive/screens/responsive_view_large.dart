@@ -1,4 +1,8 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:size_test/responsive/widgets/number_grid.dart';
+import 'package:size_test/responsive/widgets/random_image.dart';
+import 'package:size_test/utils/texts.dart';
 
 class ResponsiveViewLarge extends StatelessWidget {
   const ResponsiveViewLarge({
@@ -12,25 +16,26 @@ class ResponsiveViewLarge extends StatelessWidget {
         flex: 4,
         child: Container(
           alignment: Alignment.center,
-          color: Colors.blueAccent,
-          child: const Text('Desktop', style: TextStyle(fontSize: 24)),
+          child: const RandomImage(),
         ),
       ),
       Expanded(
         flex: 7,
         child: Container(
           alignment: Alignment.center,
-          color: Colors.grey,
-          child: const Text('Desktop', style: TextStyle(fontSize: 24)),
+          child: const AutoSizeText(
+            loreIpsum,
+            style: TextStyle(fontSize: 30),
+            maxLines: 11,
+          ),
         ),
       ),
-      Expanded(
+      const Expanded(
         flex: 10,
-        child: Container(
-          alignment: Alignment.center,
-          color: Colors.green,
-          child: const Text('Desktop', style: TextStyle(fontSize: 24)),
-        ),
+        child: SingleChildScrollView(
+            child: NumberGrid(
+          crossAxisCount: 4,
+        )),
       ),
     ]);
   }
